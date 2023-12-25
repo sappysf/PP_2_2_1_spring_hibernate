@@ -1,9 +1,11 @@
 package hiber;
+
 import hiber.config.AppConfig;
 import hiber.model.Car;
 import hiber.model.User;
 import hiber.service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import java.util.List;
 
 public class MainApp {
@@ -34,8 +36,12 @@ public class MainApp {
             System.out.println(user.getCarUser());
             System.out.println("----------------");
         }
-        List<User> carUser = userService.getUsersByCar("BMW", 34);
-        System.out.println(carUser);
+//        List<User> carUser = userService.getUsersByCar("BMW", 34);  -- получение списка сущностей
+        User user = userService.getUserByCar("BMW", 34);
+        System.out.println(user);
+
+        // Я не понял ТЗ в плане нужно получать список обьектов или сам обьект
+        // и сделал получение через коллекцию и саму сущность
 
         context.close();
     }
